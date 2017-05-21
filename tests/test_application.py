@@ -15,7 +15,7 @@ from distill.response import Response
 from routes import Mapper
 
 try:
-    from StringIO import StringIO
+    from io import StringIO
 except ImportError:
     from io import StringIO
 
@@ -76,7 +76,7 @@ def internal_server_error(request, response):
 
 
 def handle_ise(request, response):
-    print(response.description)
+    print((response.description))
     resp = Response()
     resp.body = "Whoops"
     return resp

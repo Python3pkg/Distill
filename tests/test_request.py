@@ -6,7 +6,7 @@ except ImportError:
 from distill.request import Request
 from routes import Mapper
 try:
-    from StringIO import StringIO
+    from io import StringIO
     from io import BytesIO
 except ImportError:
     from io import StringIO, BytesIO

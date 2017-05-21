@@ -2,7 +2,7 @@ import base64
 from distill import PY3
 import os
 try:  # pragma: no cover
-    import cPickle as pickle
+    import pickle as pickle
 except ImportError:  # pragma: no cover
     import pickle
 

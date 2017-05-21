@@ -6,6 +6,7 @@ from distill.exceptions import HTTPNotFound, HTTPErrorResponse
 from distill.request import Request
 from distill.response import Response
 from distill.renderers import RenderFactory
+import collections
 
 
 class Distill(object):
@@ -99,7 +100,7 @@ class Distill(object):
                     res = getattr(controller, context['action'])(req, resp)
                 else:
                     raise HTTPNotFound()
-            elif callable(context['action']):
+            elif isinstance(context['action'], collections.Callable):
                 res = context['action'](req, resp)
             else:
                 raise HTTPNotFound()

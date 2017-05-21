@@ -19,7 +19,7 @@ class Response(object):
         if PY3:  # pragma: no cover
             items = list(self.headers.items())
         else:  # pragma: no cover
-            items = self.headers.items()
+            items = list(self.headers.items())
         wsgilist = []
         for l in items:
             if type(l[1]) == list:

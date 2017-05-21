@@ -77,7 +77,7 @@ class Request(object):
             modified.
         """
         headers = CaseInsensitiveDict()
-        for k, v in self.env.items():
+        for k, v in list(self.env.items()):
             if k.startswith("HTTP_"):
                 headers[k[5:].replace('_', '-')] = v
 

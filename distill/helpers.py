@@ -148,10 +148,10 @@ class CaseInsensitiveDict(dict):
         return len(self._dict)
 
     def __iter__(self):
-        return (k for k, v in self._dict.values())
+        return (k for k, v in list(self._dict.values()))
 
     def keys(self):
-        return [k for k, v in self._dict.values()]
+        return [k for k, v in list(self._dict.values())]
 
     def get(self, k, d=None):
         try:
@@ -164,10 +164,10 @@ class CaseInsensitiveDict(dict):
             self._dict[k.lower()] = (k, d)
 
     def iteritems(self):
-        return self._dict.values()
+        return list(self._dict.values())
 
     def items(self):
-        return self._dict.values()
+        return list(self._dict.values())
 
     def copy(self):
         return CaseInsensitiveDict(self._dict)

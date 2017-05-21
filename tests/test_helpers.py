@@ -24,13 +24,13 @@ class TestHelpers(unittest.TestCase):
         dic.setdefault('Baz', 'Foo')
         self.assertNotEqual(dic['Baz'], 'Foo')
         self.assertEqual(dic, dic.copy())
-        self.assertEqual(dict(dic.items()), {"Foo": "Bar", "Bar": "Foo", "Baz": "Bar"})
-        self.assertEqual(dict([(k, v) for k, v in dic.iteritems()]),
+        self.assertEqual(dict(list(dic.items())), {"Foo": "Bar", "Bar": "Foo", "Baz": "Bar"})
+        self.assertEqual(dict([(k, v) for k, v in dic.items()]),
                          {"Foo": "Bar", "Bar": "Foo", "Baz": "Bar"})
         for k in dic:
             self.assertEqual(dic[k], {"Foo": "Bar", "Bar": "Foo", "Baz": "Bar"}[k])
 
-        for k in dic.keys():
+        for k in list(dic.keys()):
             self.assertIn(k, ["Foo", "Bar", "Baz"])
 
     def test_urldecdoe(self):
